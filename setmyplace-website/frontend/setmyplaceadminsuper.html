@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submissions — Set My Place Admin</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../assets/icontitle.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  body{animation:none; opacity:1;}
+  body{background:linear-gradient(135deg, var(--paper) 0%, #f3ecdc 100%);}
+  .admin-wrap{max-width:1200px; margin:40px auto; padding:0 24px;}
+  .admin-brand{display:flex; align-items:center; gap:14px; margin-bottom:28px;}
+  .admin-brand img{width:100px; height:58px; object-fit:contain;}
+  .admin-brand small{display:block; margin-top:3px; color:#8A93AB; font-size:12px;}
+  .admin-head{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; margin-bottom:26px;}
+  .admin-head h1{font-size:26px; color:var(--navy);}
+  .key-row{display:flex; gap:10px; margin-bottom:26px;}
+  .key-row input{flex:1; padding:12px 14px; border:1px solid var(--line); border-radius:4px; font-family:inherit;}
+  table{width:100%; border-collapse:collapse; background:var(--white); border:1px solid var(--line); border-radius:8px; overflow:hidden;}
+  th, td{text-align:left; padding:12px 14px; font-size:13.5px; border-bottom:1px solid var(--line); vertical-align:top;}
+  th{background:var(--paper-2); color:var(--navy); font-family:'Space Grotesk'; font-weight:600;}
+  tr:last-child td{border-bottom:none;}
+  .status-msg{font-size:14px; color:#8A93AB; margin-bottom:14px;}
+  .msg-cell{max-width:260px; white-space:pre-wrap;}
+  .status-select{border:1px solid var(--line); border-radius:999px; padding:7px 10px; font:600 12px Inter,sans-serif; color:var(--navy); background:var(--paper);}
+  .status-select.status-contacted{border-color:#2d9cdb; color:#1674a8;}
+  .status-select.status-accepted{border-color:#f2790c; color:#c45a00;}
+  .status-select.status-attended{border-color:#43b97a; color:#218052;}
+  .row-actions{display:flex; gap:7px; flex-wrap:wrap; margin-top:8px;}
+  .row-actions a,.row-actions button{display:inline-flex; align-items:center; gap:5px; border:1px solid var(--line); border-radius:4px; padding:7px 9px; font:600 12px Inter,sans-serif; text-decoration:none; cursor:pointer;}
+  .row-actions a{background:#e8f8ef; color:#218052; border-color:#b7e4c9;}
+  .row-actions button{background:var(--paper-2); color:var(--navy);}
+  .row-actions svg{width:14px; height:14px;}
+  @media (max-width:700px){.admin-wrap{margin:24px auto; padding:0 14px;} th,td{padding:10px 9px;}.admin-brand img{width:48px;height:48px;}}
+</style>
+</head>
+<body>
+  <div class="admin-wrap">
+    <div class="admin-brand">
+      <img src="../assets/logo.gif" alt="Set My Place">
+      <div><strong>Set My Place</strong><small>Enquiry management</small></div>
+    </div>
+    <div class="admin-head">
+      <h1>Contact form submissions</h1>
+      <a class="btn-outline-navy" href="index.html">← Back to site</a>
+    </div>
+
+    <div class="key-row">
+      <input type="password" id="adminKey" placeholder="Enter ADMIN_KEY">
+      <button class="btn-dark" id="loadBtn">Load submissions</button>
+      <button class="btn-outline-navy" id="refreshBtn" style="display:none;">Refresh</button>
+    </div>
+
+    <p class="status-msg" id="status">Enter the ADMIN_KEY you set on the server, then load submissions.</p>
+
+    <div style="overflow-x:auto;">
+      <table id="table" style="display:none;">
+        <thead>
+          <tr>
+            <th>When</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Service</th>
+            <th>Preferred date</th>
+            <th>Message</th>
+            <th>Status &amp; actions</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+<script>
+  const statusEl = document.getElementById('status');
+  const table = document.getElementById('table');
+  const tbody = document.getElementById('tbody');
+  const keyInput = document.getElementById('adminKey');
+  const loadBtn = document.getElementById('loadBtn');
+  const refreshBtn = document.getElementById('refreshBtn');
+
+  async function loadSubmissions(){
+    const key = keyInput.value.trim();
+    if(!key){ statusEl.textContent = 'Enter your ADMIN_KEY first.'; return; }
+    statusEl.textContent = 'Loading…';
+    try{
+      const res = await fetch('/api/contacts', { headers: { 'X-Admin-Key': key } });
+      if(res.status === 401){ statusEl.textContent = 'Unauthorized — check your ADMIN_KEY.'; table.style.display='none'; return; }
+      if(!res.ok){ statusEl.textContent = 'Something went wrong loading submissions.'; return; }
+      const data = await res.json();
+      tbody.innerHTML = '';
+      if(!data.length){
+        statusEl.textContent = 'No submissions yet.';
+        table.style.display = 'none';
+        return;
+      }
+      data.forEach(item => {
+        const tr = document.createElement('tr');
+        const status = item.status || 'new';
+        const phone = item.phone.replace(/[^0-9+]/g, '');
+        const whatsappPhone = phone.replace(/[^0-9]/g, '');
+        const whatsappText = encodeURIComponent(`Hi ${item.name}, this is Set My Place regarding your ${item.service || 'service'} enquiry.`);
+        tr.innerHTML = `
+          <td>${formatDateTime(item.created_at)}</td>
+          <td>${escapeHtml(item.name)}</td>
+          <td><a href="tel:${escapeHtml(phone)}">${escapeHtml(item.phone)}</a></td>
+          <td>${escapeHtml(item.service || '—')}</td>
+          <td>${escapeHtml(item.date || '—')}</td>
+          <td class="msg-cell">${escapeHtml(item.message || '—')}</td>
+          <td>
+            <select class="status-select status-${status}" data-id="${item.id}" aria-label="Update status for ${escapeHtml(item.name)}">
+              ${statusOptions(status)}
+            </select>
+            <div class="row-actions">
+              <a href="tel:${escapeHtml(phone)}" aria-label="Call ${escapeHtml(item.name)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.3 1.77.54 2.61a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.47-1.11a2 2 0 0 0 2.11-.45c.84.24 1.71.42 2.61.54A2 2 0 0 1 22 16.92z"/></svg>Call</a>
+              <a href="https://wa.me/${whatsappPhone}?text=${whatsappText}" target="_blank" rel="noopener" aria-label="Message ${escapeHtml(item.name)} on WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Message</a>
+            </div>
+          </td>
+        `;
+        tr.querySelector('.status-select').addEventListener('change', event => updateStatus(item.id, event.target));
+        tbody.appendChild(tr);
+      });
+      table.style.display = 'table';
+      statusEl.textContent = `${data.length} submission(s) total.`;
+      refreshBtn.style.display = 'inline-flex';
+    }catch(err){
+      statusEl.textContent = 'Could not reach the backend. Is the Go server running?';
+    }
+  }
+
+  function statusOptions(selected){
+    return [
+      ['new', 'New'],
+      ['contacted', 'Contacted'],
+      ['accepted', 'Accepted'],
+      ['attended', 'Attended']
+    ].map(([value, label]) => `<option value="${value}" ${value === selected ? 'selected' : ''}>${label}</option>`).join('');
+  }
+
+  function formatDateTime(value){
+    const date = new Date(value);
+    if(Number.isNaN(date.getTime())) return '—';
+    const pad = number => String(number).padStart(2, '0');
+    const hours = date.getHours();
+    const hour12 = hours % 12 || 12;
+    const meridiem = hours < 12 ? 'AM' : 'PM';
+    return `${pad(date.getDate())}/${pad(date.getMonth() + 1)}/${date.getFullYear()} ${pad(hour12)}:${pad(date.getMinutes())} ${meridiem}`;
+  }
+
+  async function updateStatus(id, select){
+    const previous = select.value;
+    select.disabled = true;
+    try{
+      const res = await fetch(`/api/contacts/${id}`, {
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json', 'X-Admin-Key': keyInput.value.trim()},
+        body: JSON.stringify({status: previous})
+      });
+      if(!res.ok) throw new Error('Status update failed');
+      select.className = `status-select status-${previous}`;
+      statusEl.textContent = 'Status updated.';
+    }catch(err){
+      statusEl.textContent = 'Could not update status. Please try again.';
+      await loadSubmissions();
+    }finally{
+      select.disabled = false;
+    }
+  }
+
+  function escapeHtml(str){
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  loadBtn.addEventListener('click', loadSubmissions);
+  refreshBtn.addEventListener('click', loadSubmissions);
+  keyInput.addEventListener('keydown', e => { if(e.key === 'Enter') loadSubmissions(); });
+</script>
+</body>
+</html>
