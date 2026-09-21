@@ -6,7 +6,8 @@ Postgres driver. It does three things:
 1. Serves the website (the HTML files in the sibling `frontend` folder).
 2. Exposes an API so the contact form on `contact.html` saves submissions
    into a Postgres database.
-3. Creates its own database table automatically on first run — no separate
+3. Exposes a multipurpose partner registration API used by `partner.html`.
+4. Creates its database tables automatically on first run — no separate
    migration tool needed.
 
 ## Requirements
@@ -186,10 +187,25 @@ DATABASE_URL="postgres://..." ADMIN_KEY="your-real-key" PORT=8080 ./setmyplace-s
 `name` and `phone` are required. Response: `{"success": true}` on success,
 or `{"error": "..."}` with a 4xx/5xx status.
 
+### `POST /api/partner-registration`
+
+Accepts the partner registration form as JSON. It stores applicant, service,
+vehicle, business, identity, bank, availability, reference and declaration
+fields in the `partner_registrations` table. `full_name`, `mobile_number`,
+`primary_service` and `declaration_accepted` are required. Checkbox groups are
+stored as Postgres text arrays (`partner_types`, `service_categories`,
+`documents` and `capabilities`).
+
 ### `GET /api/contacts`
 
 Requires `X-Admin-Key: <key>` header or `?key=<key>` query param. Returns a
 JSON array of all submissions, newest first.
+
+### `GET /api/partner-registrations`
+
+Requires the same `X-Admin-Key` authentication. Returns every partner/vendor
+registration with all submitted fields. The super-admin page displays these
+records under the **Partners & Vendors** category with expandable details.
 
 ### `GET /api/health`
 
@@ -208,6 +224,15 @@ CREATE TABLE contacts (
     created_at     TIMESTAMPTZ NOT NULL DEFAULT now(),
     ip             TEXT
 );
+```
+
+Partner registrations are stored separately so they can be reviewed without
+mixing them with customer enquiries:
+
+```sql
+SELECT id, full_name, mobile_number, primary_service, status, created_at
+FROM partner_registrations
+ORDER BY created_at DESC;
 ```
 
 This is created for you automatically — the SQL above is just for

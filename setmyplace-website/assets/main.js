@@ -142,7 +142,19 @@ document.addEventListener('DOMContentLoaded', () => {
   if (form) {
     const statusEl = document.querySelector('#formStatus');
     const sendOverlay = document.querySelector('#sendOverlay');
+    const serviceSelect = form.querySelector('#service');
+    const otherServiceRow = form.querySelector('#otherServiceRow');
+    const otherServiceInput = form.querySelector('#otherService');
     const originalStatus = statusEl ? statusEl.textContent : '';
+
+    const updateOtherService = () => {
+      const isOther = serviceSelect?.value === 'Other';
+      if (otherServiceRow) otherServiceRow.hidden = !isOther;
+      if (otherServiceInput) otherServiceInput.required = isOther;
+      if (!isOther && otherServiceInput) otherServiceInput.value = '';
+    };
+    serviceSelect?.addEventListener('change', updateOtherService);
+    updateOtherService();
 
     const showSendOverlay = () => {
       sendOverlay?.classList.remove('is-sent', 'is-confirmed');
@@ -174,10 +186,13 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.innerHTML = 'Sending…';
       btn.style.opacity = '.7';
 
+      const selectedService = serviceSelect ? serviceSelect.value : '';
+      const customService = otherServiceInput ? otherServiceInput.value.trim() : '';
+
       const payload = {
         name: form.name.value,
         phone: form.phone.value,
-        service: form.service ? form.service.value : '',
+        service: selectedService === 'Other' ? customService : selectedService,
         date: form.date ? form.date.value : '',
         message: form.message ? form.message.value : '',
         company_website: form.company_website ? form.company_website.value : '' // honeypot
@@ -196,6 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
           hideSendOverlay(true);
           if (statusEl) { statusEl.textContent = "Thanks — we've got your details and will reach out shortly."; }
           form.reset();
+          updateOtherService();
         } else {
           hideSendOverlay();
           btn.innerHTML = 'Try again';
@@ -212,6 +228,88 @@ document.addEventListener('DOMContentLoaded', () => {
           btn.innerHTML = originalBtn;
           if (statusEl) statusEl.textContent = originalStatus;
         }, 4000);
+      }
+    });
+  }
+
+  /* ---------- partner registration form (posts to the Go backend) ---------- */
+  const partnerForm = document.querySelector('#partnerRegistrationForm');
+  if (partnerForm) {
+    const statusEl = document.querySelector('#partnerFormStatus');
+    const sendOverlay = document.querySelector('#sendOverlay');
+    const originalStatus = statusEl ? statusEl.textContent : '';
+    const showSendOverlay = () => {
+      sendOverlay?.classList.remove('is-sent', 'is-confirmed');
+      sendOverlay?.classList.add('is-visible');
+      sendOverlay?.setAttribute('aria-hidden', 'false');
+    };
+    const hideSendOverlay = (sent = false) => {
+      if (!sendOverlay) return;
+      if (sent) {
+        sendOverlay.classList.add('is-sent');
+        setTimeout(() => sendOverlay.classList.add('is-confirmed'), 900);
+        setTimeout(() => {
+          sendOverlay.classList.remove('is-visible', 'is-sent', 'is-confirmed');
+          sendOverlay.setAttribute('aria-hidden', 'true');
+        }, 2300);
+      } else {
+        sendOverlay.classList.remove('is-visible');
+        sendOverlay.setAttribute('aria-hidden', 'true');
+      }
+    };
+
+    partnerForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = partnerForm.querySelector('.form-submit');
+      const originalBtn = btn.innerHTML;
+      const payload = {};
+      showSendOverlay();
+
+      partnerForm.querySelectorAll('[name]').forEach(field => {
+        if (field.type === 'checkbox') {
+          if (field.name === 'declaration_accepted') payload[field.name] = field.checked;
+          else if (field.checked) (payload[field.name] ||= []).push(field.value);
+        } else if (field.name !== 'company_website') {
+          payload[field.name] = field.value.trim();
+        } else {
+          payload.company_website = field.value;
+        }
+      });
+
+      btn.disabled = true;
+      btn.innerHTML = 'Submitting...';
+      btn.style.opacity = '.7';
+      if (statusEl) statusEl.textContent = 'Submitting your registration...';
+
+      try {
+        const res = await fetch('/api/partner-registration', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json().catch(() => ({}));
+
+        if (res.ok && data.success) {
+          btn.innerHTML = 'Registration received';
+          hideSendOverlay(true);
+          if (statusEl) statusEl.textContent = 'Thank you. We will review your details and contact you shortly.';
+          partnerForm.reset();
+        } else {
+          hideSendOverlay();
+          btn.innerHTML = 'Try again';
+          if (statusEl) statusEl.textContent = data.error || 'Something went wrong. Please try again.';
+        }
+      } catch (err) {
+        hideSendOverlay();
+        btn.innerHTML = 'Try again';
+        if (statusEl) statusEl.textContent = "Couldn't reach the server. Please call or WhatsApp us instead.";
+      } finally {
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        setTimeout(() => {
+          btn.innerHTML = originalBtn;
+          if (statusEl) statusEl.textContent = originalStatus;
+        }, 5000);
       }
     });
   }

@@ -72,6 +72,146 @@
   <img class="hero-inner-icon" src="../assets/icon.png" alt="">
 </section>
 
+<section class="bg-cream2" id="partner-registration">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker"><i></i> Partner registration</div>
+      <h2>Register as a Set My Place partner.</h2>
+      <p>Tell us about yourself, your services and your operating area. We will verify the details and contact you about activation.</p>
+    </div>
+    <form id="partnerRegistrationForm" class="form-card">
+      <input type="text" name="company_website" autocomplete="off" tabindex="-1" class="partner-honeypot" aria-hidden="true">
+
+      <h3 class="partner-form-title">1. Applicant details</h3>
+      <div class="form-two">
+        <div class="form-row"><label for="partnerFullName">Full name *</label><input id="partnerFullName" name="full_name" required></div>
+        <div class="form-row"><label for="guardianName">Father / husband / guardian name</label><input id="guardianName" name="guardian_name"></div>
+        <div class="form-row"><label for="dateOfBirth">Date of birth</label><input id="dateOfBirth" name="date_of_birth" type="date"></div>
+        <div class="form-row"><label for="mobileNumber">Mobile number *</label><input id="mobileNumber" name="mobile_number" type="tel" required></div>
+        <div class="form-row"><label for="alternateNumber">Alternate / WhatsApp number</label><input id="alternateNumber" name="alternate_number" type="tel"></div>
+        <div class="form-row"><label for="partnerEmail">Email ID</label><input id="partnerEmail" name="email" type="email"></div>
+      </div>
+      <div class="form-two">
+        <div class="form-row"><label for="currentAddress">Current address</label><textarea id="currentAddress" name="current_address" rows="3"></textarea></div>
+        <div class="form-row"><label for="permanentAddress">Permanent address</label><textarea id="permanentAddress" name="permanent_address" rows="3"></textarea></div>
+      </div>
+      <div class="form-two">
+        <div class="form-row"><label for="city">City</label><input id="city" name="city"></div>
+        <div class="form-row"><label for="state">State</label><input id="state" name="state"></div>
+        <div class="form-row"><label for="pin">PIN code</label><input id="pin" name="pin" inputmode="numeric" maxlength="6"></div>
+        <div class="form-row"><label for="emergencyContact">Emergency contact name &amp; number</label><input id="emergencyContact" name="emergency_contact"></div>
+      </div>
+
+      <h3 class="partner-form-title">2. Partner type and services</h3>
+      <div class="check-list form-row">
+        <label><input type="checkbox" name="partner_types" value="Individual"> Individual</label>
+        <label><input type="checkbox" name="partner_types" value="Driver"> Driver</label>
+        <label><input type="checkbox" name="partner_types" value="Vendor / Agency"> Vendor / Agency</label>
+        <label><input type="checkbox" name="partner_types" value="Service Professional"> Service Professional</label>
+        <label><input type="checkbox" name="partner_types" value="Other"> Other</label>
+      </div>
+      <div class="form-two">
+        <div class="form-row"><label for="primaryService">Primary service *</label><input id="primaryService" name="primary_service" placeholder="e.g. Home shifting, cleaning, electrical" required></div>
+        <div class="form-row"><label for="yearsExperience">Years of experience</label><input id="yearsExperience" name="years_experience"></div>
+        <div class="form-row"><label for="preferredLocations">Preferred service locations</label><input id="preferredLocations" name="preferred_locations"></div>
+        <div class="form-row"><label for="languages">Languages known</label><input id="languages" name="languages"></div>
+      </div>
+      <div class="form-row"><label for="skills">Skills / expertise</label><textarea id="skills" name="skills" rows="3"></textarea></div>
+      <div class="check-list form-row">
+        <label><input type="checkbox" name="service_categories" value="Home Shifting / Packers & Movers"> Home shifting / Packers &amp; movers</label>
+        <label><input type="checkbox" name="service_categories" value="Loading & Unloading"> Loading &amp; unloading</label>
+        <label><input type="checkbox" name="service_categories" value="Packing / Unpacking"> Packing / unpacking</label>
+        <label><input type="checkbox" name="service_categories" value="Cleaning / Deep Cleaning"> Cleaning / deep cleaning</label>
+        <label><input type="checkbox" name="service_categories" value="Housekeeping / Home Maid"> Housekeeping / home maid</label>
+        <label><input type="checkbox" name="service_categories" value="Furniture Setup & Arrangement"> Furniture setup &amp; arrangement</label>
+        <label><input type="checkbox" name="service_categories" value="Home Setup"> Home setup / ready-to-live setup</label>
+        <label><input type="checkbox" name="service_categories" value="AC Installation / Service"> AC installation / service</label>
+        <label><input type="checkbox" name="service_categories" value="Appliance Service"> Refrigerator, washing machine, microwave or TV service</label>
+        <label><input type="checkbox" name="service_categories" value="Electrical"> Electrical</label>
+        <label><input type="checkbox" name="service_categories" value="Plumbing"> Plumbing</label>
+        <label><input type="checkbox" name="service_categories" value="Carpentry"> Carpentry</label>
+        <label><input type="checkbox" name="service_categories" value="Cooking / Tiffin"> Cooking / tiffin service</label>
+        <label><input type="checkbox" name="service_categories" value="Care Services"> Japa / baby care / elderly care</label>
+        <label><input type="checkbox" name="service_categories" value="Laundry / Pet Care / Pest Control"> Laundry, pet care or pest control</label>
+        <label><input type="checkbox" name="service_categories" value="Transport / Delivery"> Local shifting, transport, delivery or pickup</label>
+      </div>
+
+      <h3 class="partner-form-title">3. Driver and vehicle details, if applicable</h3>
+      <div class="form-two">
+        <div class="form-row"><label for="drivingLicence">Driving licence number</label><input id="drivingLicence" name="driving_licence"></div>
+        <div class="form-row"><label for="licenceExpiry">Licence type / expiry date</label><input id="licenceExpiry" name="licence_expiry"></div>
+        <div class="form-row"><label for="vehicleOwner">Vehicle owner name</label><input id="vehicleOwner" name="vehicle_owner"></div>
+        <div class="form-row"><label for="vehicleRegistration">Vehicle registration number</label><input id="vehicleRegistration" name="vehicle_registration"></div>
+        <div class="form-row"><label for="vehicleType">Vehicle type</label><input id="vehicleType" name="vehicle_type"></div>
+        <div class="form-row"><label for="vehicleMakeModel">Vehicle make &amp; model</label><input id="vehicleMakeModel" name="vehicle_make_model"></div>
+        <div class="form-row"><label for="rcNumber">RC number</label><input id="rcNumber" name="rc_number"></div>
+        <div class="form-row"><label for="insuranceDetails">Insurance policy number / valid until</label><input id="insuranceDetails" name="insurance_details"></div>
+        <div class="form-row"><label for="pucValidUntil">PUC valid until</label><input id="pucValidUntil" name="puc_valid_until"></div>
+        <div class="form-row"><label for="permitDetails">Permit / fitness certificate</label><input id="permitDetails" name="permit_details"></div>
+      </div>
+
+      <h3 class="partner-form-title">4. Business / vendor details, if applicable</h3>
+      <div class="form-two">
+        <div class="form-row"><label for="businessName">Business / firm name</label><input id="businessName" name="business_name"></div>
+        <div class="form-row"><label for="businessType">Business type</label><input id="businessType" name="business_type"></div>
+        <div class="form-row"><label for="authorizedPerson">Owner / authorized person</label><input id="authorizedPerson" name="authorized_person"></div>
+        <div class="form-row"><label for="businessAddress">Business address</label><input id="businessAddress" name="business_address"></div>
+        <div class="form-row"><label for="gstin">GSTIN</label><input id="gstin" name="gstin"></div>
+        <div class="form-row"><label for="pan">PAN</label><input id="pan" name="pan"></div>
+        <div class="form-row"><label for="tradeRegistration">Trade / business registration no.</label><input id="tradeRegistration" name="trade_registration"></div>
+        <div class="form-row"><label for="employees">No. of employees / workers</label><input id="employees" name="employees"></div>
+        <div class="form-row"><label for="teamSize">Service team size</label><input id="teamSize" name="team_size"></div>
+        <div class="form-row"><label for="yearsInBusiness">Years in business</label><input id="yearsInBusiness" name="years_in_business"></div>
+      </div>
+      <div class="form-row"><label for="previousExperience">Previous company / platform experience</label><textarea id="previousExperience" name="previous_experience" rows="3"></textarea></div>
+
+      <h3 class="partner-form-title">5. Identity, bank and documents</h3>
+      <div class="form-two">
+        <div class="form-row"><label for="governmentId">Aadhaar / government ID number</label><input id="governmentId" name="government_id"></div>
+        <div class="form-row"><label for="panNumber">PAN number</label><input id="panNumber" name="pan_number"></div>
+        <div class="form-row"><label for="otherIdProof">Other ID / address proof</label><input id="otherIdProof" name="other_id_proof"></div>
+        <div class="form-row"><label for="bankAccountHolder">Bank account holder name</label><input id="bankAccountHolder" name="bank_account_holder"></div>
+        <div class="form-row"><label for="bankName">Bank name</label><input id="bankName" name="bank_name"></div>
+        <div class="form-row"><label for="accountNumber">Account number</label><input id="accountNumber" name="account_number"></div>
+        <div class="form-row"><label for="ifscCode">IFSC code</label><input id="ifscCode" name="ifsc_code"></div>
+        <div class="form-row"><label for="upiId">UPI ID</label><input id="upiId" name="upi_id"></div>
+      </div>
+      <div class="check-list form-row">
+        <label><input type="checkbox" name="documents" value="Aadhaar / Government ID"> Aadhaar / government ID</label>
+        <label><input type="checkbox" name="documents" value="PAN Card"> PAN card</label>
+        <label><input type="checkbox" name="documents" value="Address Proof"> Address proof</label>
+        <label><input type="checkbox" name="documents" value="Driving Licence"> Driving licence</label>
+        <label><input type="checkbox" name="documents" value="Vehicle RC"> Vehicle RC</label>
+        <label><input type="checkbox" name="documents" value="Vehicle Insurance"> Vehicle insurance</label>
+        <label><input type="checkbox" name="documents" value="PUC Certificate"> PUC certificate</label>
+        <label><input type="checkbox" name="documents" value="GST / Business Registration"> GST / business registration</label>
+        <label><input type="checkbox" name="documents" value="Skill / Training Certificate"> Skill / training certificate</label>
+        <label><input type="checkbox" name="documents" value="Police Verification"> Police verification</label>
+        <label><input type="checkbox" name="documents" value="Bank Proof"> Bank proof / cancelled cheque</label>
+        <label><input type="checkbox" name="documents" value="Passport Photograph"> Passport size photograph</label>
+      </div>
+
+      <h3 class="partner-form-title">6. Availability and references</h3>
+      <div class="check-list form-row">
+        <label><input type="checkbox" name="capabilities" value="Same-day service"> Same-day service</label>
+        <label><input type="checkbox" name="capabilities" value="Urgent requests"> Urgent / emergency requests</label>
+        <label><input type="checkbox" name="capabilities" value="Own tools"> Own tools / equipment</label>
+        <label><input type="checkbox" name="capabilities" value="Nearby travel"> Can travel to nearby areas</label>
+      </div>
+      <div class="form-two">
+        <div class="form-row"><label for="workingDays">Working days</label><input id="workingDays" name="working_days"></div>
+        <div class="form-row"><label for="workingHours">Preferred working hours</label><input id="workingHours" name="working_hours"></div>
+        <div class="form-row"><label for="serviceRadius">Maximum service radius / area</label><input id="serviceRadius" name="service_radius"></div>
+        <div class="form-row"><label for="referenceOne">Reference 1: name / mobile / relationship</label><input id="referenceOne" name="reference_one"></div>
+      </div>
+      <div class="form-row"><label for="referenceTwo">Reference 2: name / mobile / relationship</label><input id="referenceTwo" name="reference_two"></div>
+      <label class="declaration-row"><input type="checkbox" name="declaration_accepted" value="true" required> I confirm that the information and documents provided are true and correct. I agree to professional, safe and responsible service and understand that registration does not guarantee work or bookings.</label>
+      <button type="submit" class="btn-primary form-submit">Submit partner registration</button>
+      <p class="form-note" id="partnerFormStatus">Your details are used for registration, verification, service management, payments and safety.</p>
+    </form>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="section-head reveal">
@@ -294,6 +434,25 @@
     </div>
   </div>
 </footer>
+
+<div class="send-overlay" id="sendOverlay" aria-hidden="true">
+  <div class="send-loader" role="status" aria-live="polite">
+    <div class="rocket-scene">
+      <svg class="paper-rocket" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M17 58 94 17l-26 78-19-25-32-12Z" fill="var(--white)" stroke="var(--orange)" stroke-width="4" stroke-linejoin="round"/>
+        <path d="m49 70 19 25 8-25-27-10Z" fill="var(--orange-2)" stroke="var(--orange)" stroke-width="3" stroke-linejoin="round"/>
+        <path d="m17 58 29 2 48-43" stroke="var(--orange)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="m46 60 21 10" stroke="var(--navy)" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <span class="rocket-trail"></span>
+    </div>
+    <p class="send-overlay-text">Sending your registration...</p>
+    <div class="send-success" aria-hidden="true">
+      <div class="success-circle"><svg viewBox="0 0 52 52" fill="none" aria-hidden="true"><path d="m14 27 8 8 16-18" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <p>Registration sent!</p>
+    </div>
+  </div>
+</div>
 
 <button class="to-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 
