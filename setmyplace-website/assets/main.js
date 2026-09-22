@@ -104,6 +104,52 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.6 });
   counters.forEach(c => countIO.observe(c));
 
+  /* ---------- automatically rotating testimonials ---------- */
+  document.querySelectorAll('[data-testimonial-carousel]').forEach(carousel => {
+    const track = carousel.querySelector('.testi-grid');
+    const cards = [...carousel.querySelectorAll('.testi-card')];
+    const dots = carousel.querySelector('.testi-dots');
+    const previous = carousel.querySelector('[data-testimonial-prev]');
+    const next = carousel.querySelector('[data-testimonial-next]');
+    if (!track || cards.length < 2 || !dots) return;
+
+    let index = 0;
+    let timer;
+    const getVisibleCards = () => window.matchMedia('(max-width: 900px)').matches ? 1 : 3;
+    const getPageCount = () => Math.ceil(cards.length / getVisibleCards());
+    const renderDots = () => {
+      dots.innerHTML = '';
+      for (let page = 0; page < getPageCount(); page += 1) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'testi-dot';
+        dot.setAttribute('aria-label', `Show testimonial group ${page + 1}`);
+        dot.addEventListener('click', () => { index = page; update(); restart(); });
+        dots.appendChild(dot);
+      }
+    };
+    const update = () => {
+      const visible = getVisibleCards();
+      const pageCount = getPageCount();
+      index = Math.min(index, pageCount - 1);
+      const cardWidth = cards[0].getBoundingClientRect().width;
+      track.style.transform = `translateX(-${index * visible * (cardWidth + 24)}px)`;
+      dots.querySelectorAll('.testi-dot').forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === index));
+    };
+    const restart = () => {
+      clearInterval(timer);
+      timer = setInterval(() => { index = (index + 1) % getPageCount(); update(); }, 5000);
+    };
+    previous?.addEventListener('click', () => { index = (index - 1 + getPageCount()) % getPageCount(); update(); restart(); });
+    next?.addEventListener('click', () => { index = (index + 1) % getPageCount(); update(); restart(); });
+    carousel.addEventListener('mouseenter', () => clearInterval(timer));
+    carousel.addEventListener('mouseleave', restart);
+    window.addEventListener('resize', () => { renderDots(); update(); });
+    renderDots();
+    update();
+    restart();
+  });
+
   /* ---------- FAQ accordion ---------- */
   document.querySelectorAll('.faq-item').forEach(item => {
     const q = item.querySelector('.faq-q');
