@@ -133,7 +133,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const pageCount = getPageCount();
       index = Math.min(index, pageCount - 1);
       const cardWidth = cards[0].getBoundingClientRect().width;
-      track.style.transform = `translateX(-${index * visible * (cardWidth + 24)}px)`;
+      const gap = parseFloat(getComputedStyle(track).gap) || 0;
+      track.style.transform = `translate3d(-${index * visible * (cardWidth + gap)}px, 0, 0)`;
       dots.querySelectorAll('.testi-dot').forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === index));
     };
     const restart = () => {
