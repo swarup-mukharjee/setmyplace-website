@@ -518,8 +518,9 @@ section{padding:96px 0;}
 }
 .send-overlay.is-visible{opacity:1; visibility:visible;}
 .send-loader{
-  position:absolute; top:50%; left:50%; width:220px;
-  transform:translate(-50%, -50%); text-align:center; color:var(--white);
+  position:absolute; top:50%; left:50%; width:220px; z-index:1;
+  transform:translate(-50%, -50%);
+  text-align:center; color:var(--white);
 }
 .rocket-scene{position:relative; width:140px; height:140px; margin:0 auto;}
 .paper-rocket{width:100%; height:100%; filter:drop-shadow(0 14px 12px rgba(0,0,0,.25)); animation:rocketFloat 1.8s ease-in-out infinite;}
@@ -595,3 +596,88 @@ footer{background:var(--navy); color:rgba(251,246,236,0.7); margin-top:0; paddin
 .to-top.show{opacity:1; pointer-events:auto; transform:translateY(0);}
 .to-top:hover{background:var(--orange);}
 .to-top svg{width:18px; height:18px; stroke:var(--white);}
+
+/* ============================================================
+   Send overlay
+   ============================================================ */  
+
+.send-overlay{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  display:block;
+  background:rgba(15,37,69,0.94);
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .3s var(--ease), visibility .3s var(--ease);
+}
+
+.send-overlay.is-visible{
+  opacity:1;
+  visibility:visible;
+}
+
+.send-loader{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:280px;
+  z-index:10;
+  transform:translate(-50%, -50%);
+  text-align:center;
+  color:#FFFFFF;
+}
+
+.rocket-scene{
+  position:relative;
+  width:160px;
+  height:160px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:visible;
+}
+
+.paper-rocket{
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  position:relative;
+  z-index:5;
+  width:140px;
+  height:140px;
+  filter:drop-shadow(0 14px 12px rgba(0,0,0,.35));
+  animation:rocketFloat 1.8s ease-in-out infinite;
+}
+
+.rocket-trail{
+  position:absolute;
+  z-index:2;
+  left:42px;
+  bottom:4px;
+  width:7px;
+  height:45px;
+  border-radius:999px;
+  background:linear-gradient(#F2790C, transparent);
+  transform:rotate(35deg);
+  animation:trailPulse .8s ease-in-out infinite alternate;
+}
+
+.send-overlay-text{
+  position:relative;
+  z-index:5;
+  margin:12px 0 0;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:18px;
+  font-weight:600;
+  color:#FFFFFF;
+}
+
+.send-overlay.is-sent .paper-rocket{
+  animation:rocketLaunch .9s var(--ease) forwards;
+}
+
+.send-overlay.is-sent .rocket-trail{
+  animation:trailLaunch .9s var(--ease) forwards;
+}

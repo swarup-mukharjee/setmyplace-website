@@ -80,7 +80,7 @@
       <p>Tell us about yourself, your services and your operating area. We will verify the details and contact you about activation.</p>
     </div>
     <form id="partnerRegistrationForm" class="form-card">
-      <input type="text" name="company_website" autocomplete="off" tabindex="-1" class="partner-honeypot" aria-hidden="true">
+      <input type="text" name="company_website" autocomplete="off" tabindex="-1" class="partner-honeypot" aria-hidden="true" hidden style="display:none!important">
 
       <h3 class="partner-form-title">1. Applicant details</h3>
       <div class="form-two">
@@ -448,7 +448,11 @@
     </div>
     <p class="send-overlay-text">Sending your registration...</p>
     <div class="send-success" aria-hidden="true">
-      <div class="success-circle"><svg viewBox="0 0 52 52" fill="none" aria-hidden="true"><path d="m14 27 8 8 16-18" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="success-circle">
+        <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="m14 27 8 8 16-18" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
       <p>Registration sent!</p>
     </div>
   </div>

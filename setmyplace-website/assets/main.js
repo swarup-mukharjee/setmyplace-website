@@ -146,6 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const otherServiceRow = form.querySelector('#otherServiceRow');
     const otherServiceInput = form.querySelector('#otherService');
     const originalStatus = statusEl ? statusEl.textContent : '';
+    let overlayStartedAt = 0;
 
     const updateOtherService = () => {
       const isOther = serviceSelect?.value === 'Other';
@@ -157,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateOtherService();
 
     const showSendOverlay = () => {
+      overlayStartedAt = performance.now();
       sendOverlay?.classList.remove('is-sent', 'is-confirmed');
       sendOverlay?.classList.add('is-visible');
       sendOverlay?.setAttribute('aria-hidden', 'false');
@@ -164,16 +166,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const hideSendOverlay = (sent = false) => {
       if (!sendOverlay) return;
       if (sent) {
-        sendOverlay.classList.add('is-sent');
-        setTimeout(() => sendOverlay.classList.add('is-confirmed'), 900);
+        const launchDelay = Math.max(0, 800 - (performance.now() - overlayStartedAt));
+        setTimeout(() => sendOverlay.classList.add('is-sent'), launchDelay);
+        setTimeout(() => sendOverlay.classList.add('is-confirmed'), launchDelay + 900);
         setTimeout(() => {
           sendOverlay.classList.remove('is-visible', 'is-sent');
           sendOverlay.classList.remove('is-confirmed');
           sendOverlay.setAttribute('aria-hidden', 'true');
-        }, 2300);
+        }, launchDelay + 2300);
       } else {
-        sendOverlay.classList.remove('is-visible');
-        sendOverlay.setAttribute('aria-hidden', 'true');
+        setTimeout(() => {
+          sendOverlay.classList.remove('is-visible');
+          sendOverlay.setAttribute('aria-hidden', 'true');
+        }, 500);
       }
     };
 
@@ -238,7 +243,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const statusEl = document.querySelector('#partnerFormStatus');
     const sendOverlay = document.querySelector('#sendOverlay');
     const originalStatus = statusEl ? statusEl.textContent : '';
+    let overlayStartedAt = 0;
     const showSendOverlay = () => {
+      overlayStartedAt = performance.now();
       sendOverlay?.classList.remove('is-sent', 'is-confirmed');
       sendOverlay?.classList.add('is-visible');
       sendOverlay?.setAttribute('aria-hidden', 'false');
@@ -246,15 +253,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const hideSendOverlay = (sent = false) => {
       if (!sendOverlay) return;
       if (sent) {
-        sendOverlay.classList.add('is-sent');
-        setTimeout(() => sendOverlay.classList.add('is-confirmed'), 900);
+        const launchDelay = Math.max(0, 800 - (performance.now() - overlayStartedAt));
+        setTimeout(() => sendOverlay.classList.add('is-sent'), launchDelay);
+        setTimeout(() => sendOverlay.classList.add('is-confirmed'), launchDelay + 900);
         setTimeout(() => {
           sendOverlay.classList.remove('is-visible', 'is-sent', 'is-confirmed');
           sendOverlay.setAttribute('aria-hidden', 'true');
-        }, 2300);
+        }, launchDelay + 2300);
       } else {
-        sendOverlay.classList.remove('is-visible');
-        sendOverlay.setAttribute('aria-hidden', 'true');
+        setTimeout(() => {
+          sendOverlay.classList.remove('is-visible');
+          sendOverlay.setAttribute('aria-hidden', 'true');
+        }, 500);
       }
     };
 
