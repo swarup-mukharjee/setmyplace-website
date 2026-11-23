@@ -197,7 +197,7 @@ h1 em,h2 em{font-style:normal;background:linear-gradient(90deg,var(--o),#FF9A3C)
 
 /* ---------- steps / timeline ---------- */
 .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;position:relative}
-.timeline-with-truck{padding-top:124px;--truck-x:12%;counter-reset:exit}
+.timeline-with-truck{padding-top:124px;--truck-x:12%}
 /* highway: asphalt, white edge lines, moving yellow centre dashes */
 .timeline-with-truck::before{content:"";position:absolute;left:0;right:0;top:66px;height:36px;border-radius:8px;
   background:
@@ -213,12 +213,29 @@ h1 em,h2 em{font-style:normal;background:linear-gradient(90deg,var(--o),#FF9A3C)
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 35%);mask-image:linear-gradient(90deg,transparent,#000 35%)}
 @keyframes roadMove{to{background-position:0 4px,0 calc(100% - 4px),-44px 50%,0 0}}
 /* green highway sign on a post above each step */
-.timeline-with-truck .step{counter-increment:exit}
-.timeline-with-truck .step::before{content:"EXIT " counter(exit) "  \2197";position:absolute;z-index:2;right:6px;top:-116px;
+.timeline-with-truck .step::before{content:var(--sign) "  \2197";position:absolute;z-index:2;right:6px;top:-116px;
   padding:5px 10px;border-radius:5px;background:#0E6B3B;color:#fff;border:2px solid #fff;outline:1px solid #0E6B3B;
   font:700 11px/1 'Space Grotesk',sans-serif;letter-spacing:.08em;white-space:pre;box-shadow:0 4px 10px rgba(15,37,69,.18)}
+.timeline-with-truck .step:nth-child(3){--sign:"HAZRATGANJ"}
+.timeline-with-truck .step:nth-child(4){--sign:"GOMTI NAGAR"}
+.timeline-with-truck .step:nth-child(5){--sign:"INDIRA NAGAR"}
+.timeline-with-truck .step:nth-child(6){--sign:"ALIGANJ"}
 .timeline-with-truck .step::after{content:"";position:absolute;z-index:1;right:30px;top:-92px;width:3px;height:34px;
   background:linear-gradient(90deg,#9AA3B2,#6B7486);border-radius:2px}
+/* traffic on the highway */
+.road-traffic{position:absolute;z-index:2;left:0;right:0;top:60px;height:44px;overflow:hidden;pointer-events:none}
+.road-traffic .veh{position:absolute;left:-90px;animation:drive linear infinite;filter:drop-shadow(0 3px 3px rgba(15,37,69,.25))}
+.road-traffic .veh svg{display:block}
+.road-traffic .lane-b{bottom:2px}
+.road-traffic .lane-a{bottom:20px}
+.road-traffic .lane-a{animation-name:driveBack}
+.road-traffic .v1{animation-duration:9s}
+.road-traffic .v2{animation-duration:13s;animation-delay:-6s}
+.road-traffic .v3{animation-duration:16s;animation-delay:-3s}
+.road-traffic .v4{animation-duration:11s;animation-delay:-8s}
+.road-traffic .v5{animation-duration:14s;animation-delay:-11s}
+@keyframes drive{from{left:-90px}to{left:calc(100% + 20px)}}
+@keyframes driveBack{from{left:calc(100% + 20px);transform:scaleX(-1)}to{left:-90px;transform:scaleX(-1)}}
 .timeline-truck{position:absolute;z-index:3;top:30px;left:var(--truck-x);width:96px;height:58px;transform:translateX(-50%);transition:left .7s var(--ease),transform .4s}
 .timeline-truck img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 5px 5px rgba(15,37,69,.16))}
 .timeline-with-truck:has(.step:hover) .timeline-truck{transform:translate(-50%,-4px) rotate(-2deg)}
@@ -485,7 +502,7 @@ footer{background:var(--navy);color:rgba(251,246,236,.7);padding:56px 0 26px}
   .partner-split .ph{min-height:280px}
   .benefit-band{padding:44px 28px}
   .timeline-with-truck{padding-top:0}
-  .timeline-with-truck::before,.timeline-with-truck::after,.timeline-truck,.timeline-with-truck .step::before,.timeline-with-truck .step::after{display:none}
+  .timeline-with-truck::before,.timeline-with-truck::after,.timeline-truck,.road-traffic,.timeline-with-truck .step::before,.timeline-with-truck .step::after{display:none}
   .foot-grid{grid-template-columns:1fr 1fr;row-gap:30px}
   .page-hero{padding:90px 0 70px;min-height:360px}
 }
