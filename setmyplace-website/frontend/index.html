@@ -42,15 +42,24 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css?v=20260922-3">
+<script>try{document.documentElement.classList.add(sessionStorage.getItem('smp-loaded')?'no-loader':'has-loader')}catch(e){document.documentElement.classList.add('no-loader')}</script>
+<link rel="stylesheet" href="../assets/site.css?v=20261123">
 </head>
 <body>
 
+<div id="loader" aria-hidden="true">
+  <div class="ld-logo"><span class="ld-ring2"></span><span class="ld-ring"></span><img src="../assets/icon.png" alt=""></div>
+  <div class="ld-bottom">
+    <div class="ld-pct"></div>
+    <div class="ld-words"><b>Setting your place…</b>Shifting · Unpacking · Cleaning<br>Lucknow &amp; nearby</div>
+  </div>
+  <div class="ld-bar"></div>
+</div>
+
 <header class="site-header">
-  <div class="navbar">
+  <div class="wrap navbar">
     <a class="brand" href="index.html">
-      <img src="../assets/logo.gif" alt="Set My Place icon">
-      <!-- <span class="brand-word">Set<span>My</span>Place</span> -->
+      <img src="../assets/logo-anim.webp" alt="Set My Place" width="157" height="50">
     </a>
     <nav class="main-nav">
       <ul>
@@ -63,194 +72,192 @@
       </ul>
     </nav>
     <div class="nav-right">
-      <a class="nav-cta" href="contact.html">Book Now →</a>
+      <a class="btn-primary nav-cta" href="contact.html">Book Now →</a>
       <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
   <div class="mobile-nav">
     <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="how-it-works.html">How it works</a></li>
-      <li><a href="why-us.html">Why us</a></li>
-      <li><a href="partner.html">Partner with us</a></li>
-      <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="how-it-works.html">How it works</a></li>
+        <li><a href="why-us.html">Why us</a></li>
+        <li><a href="partner.html">Partner with us</a></li>
+        <li><a href="contact.html">Contact</a></li>
     </ul>
     <a class="btn-primary nav-cta" href="contact.html">Book Now</a>
   </div>
 </header>
 
-<!-- ============ HERO ============ -->
 <section class="hero-home">
-  <div class="wrap hero-home-inner">
-    <div class="eyebrow-tag"><i></i> Serving Lucknow &amp; Nearby Areas</div>
-
-    <div class="logo-hero-stage">
-      <div class="logo-glow"></div>
-      <img class="logo-hero-img" src="../assets/icon.png" alt="Set My Place logo">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow rise"><i></i> Serving Lucknow &amp; Nearby Areas</div>
+      <h1 class="rise" style="--d:.08s">You move their belongings.<br><em>We make their new house, home.</em></h1>
+      <p class="lead rise" style="--d:.16s">The ready-to-live home service that picks up right where the movers leave off — unpacking, cleaning, furniture setup and full home organisation, done for them.</p>
+      <div class="actions rise" style="--d:.24s">
+        <a class="btn-primary" href="contact.html">Book a setup →</a>
+        <a class="btn-ghost" href="partner.html">Partner with us</a>
+      </div>
+      <div class="trust rise" style="--d:.32s">
+        <div class="avatars"><span>R</span><span>P</span><span>A</span><span>+</span></div>
+        <div><b>600+ orders completed</b><br>across Lucknow &amp; nearby</div>
+      </div>
     </div>
-
-    <h1>You move their belongings.<br><em>We make their new house, home.</em></h1>
-    <p class="lead">The ready-to-live home service that picks up right where the movers leave off — unpacking, cleaning, furniture setup and full home organisation, done for them.</p>
-
-    <div class="hero-actions">
-      <a class="btn-primary" href="contact.html">Book a setup
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a class="btn-ghost" href="partner.html">Partner with us</a>
-    </div>
-
-    <div class="hero-floats">
-      <div class="float-tag t1"><i></i> Home Shifting</div>
-      <div class="float-tag t2"><i></i> Ready-to-Live Services</div>
-      <div class="float-tag t3"><i></i> Cleaning Services</div>
-      <div class="float-tag t4"><i></i> Installation &amp; Repair</div>
-      <div class="float-tag t5"><i></i> House Help Services</div>
-      <div class="float-tag t6"><i></i> Instant Help</div>
+    <div class="collage rise" style="--d:.2s">
+      <div class="ph p1"><img src="../assets/img/living-room.webp" alt="A finished, ready-to-live living room" fetchpriority="high"></div>
+      <div class="ph p2"><img src="../assets/img/unpack.webp" alt="Unpacking boxes in a new home"></div>
+      <div class="ph p3"><img src="../assets/img/cleaning.webp" alt="Deep cleaning before move-in"></div>
+      <div class="float-card c1"><div class="fc-in"><i>📦</i><div><b>Unpacked</b>&amp; ready-to-live</div></div></div>
+      <div class="float-card c2"><div class="fc-in"><i>✨</i><div><b>Deep clean</b>before move-in</div></div></div>
     </div>
   </div>
+  <div class="marquee" aria-hidden="true"><div><span>Home Shifting</span><span>Unpacking</span><span>Deep Cleaning</span><span>Furniture Setup</span><span>Appliance Installation</span><span>Home Organisation</span><span>House Help</span><span>Instant Help</span><span>Home Shifting</span><span>Unpacking</span><span>Deep Cleaning</span><span>Furniture Setup</span><span>Appliance Installation</span><span>Home Organisation</span><span>House Help</span><span>Instant Help</span><span>Home Shifting</span><span>Unpacking</span><span>Deep Cleaning</span><span>Furniture Setup</span><span>Appliance Installation</span><span>Home Organisation</span><span>House Help</span><span>Instant Help</span><span>Home Shifting</span><span>Unpacking</span><span>Deep Cleaning</span><span>Furniture Setup</span><span>Appliance Installation</span><span>Home Organisation</span><span>House Help</span><span>Instant Help</span></div></div>
+</section>
 
-  <div class="hero-strip">
+<section class="sec">
+  <div class="stats-band reveal-scale">
     <div class="wrap">
+      <div>
+        <div class="kicker light">Set My Place in numbers</div>
+        <h2>One team for everything after the truck leaves.</h2>
+        <p>Families across Lucknow trust us to turn their new house into a home — on the same day.</p>
+      </div>
       <div class="stats">
-        <div><div class="stat-num" data-count="600" data-suffix="+">0+</div><div class="stat-label">Orders completed</div></div>
-        <div><div class="stat-num" data-count="5">0</div><div class="stat-label">Core services</div></div>
-        <div><div class="stat-num" data-count="30" data-suffix="+">0+</div><div class="stat-label">Additional services</div></div>
-        <div><div class="stat-num small">1 Call</div><div class="stat-label">One booking. Zero stress.</div></div>
+        <div class="stat"><div class="stat-num" data-count="600" data-suffix="+">0+</div><div class="stat-label">Orders completed</div></div>
+        <div class="stat"><div class="stat-num" data-count="5">0</div><div class="stat-label">Core services</div></div>
+        <div class="stat"><div class="stat-num" data-count="30" data-suffix="+">0+</div><div class="stat-label">Additional services</div></div>
+        <div class="stat"><div class="stat-num small">1 Call</div><div class="stat-label">One booking. Zero stress.</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ SERVICES TEASER ============ -->
-<section id="services">
+<section class="sec tight-top" id="services">
   <div class="wrap">
-    <div class="section-head reveal">
-      <div class="kicker">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10L12 3l9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-        Our ready-to-live services
+    <div class="sec-head reveal">
+      <div>
+        <div class="kicker">Our ready-to-live services</div>
+        <h2>Everything that happens after the boxes are dropped off.</h2>
       </div>
-      <h2>Everything that happens after the boxes are dropped off.</h2>
       <p>Moving day ends when the truck leaves. Home begins when everything is unpacked, cleaned and in its place — that's the part we handle.</p>
     </div>
-
-    <div class="service-cards">
-      <div class="service-card reveal" data-delay="0">
-        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-        <h3>Home Shifting</h3>
-        <p>Safe packing, careful loading, transport and unloading — handled by trained, verified teams who treat your belongings like their own.</p>
-        <span class="tag">01 · Move</span>
-      </div>
-      <div class="service-card reveal" data-delay="80">
-        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V6a2 2 0 0 0-2-2H8L2 10l6 6h11a2 2 0 0 0 2-2v-2"/><path d="M9 14V4"/></svg></div>
-        <h3>Ready-to-Live Services</h3>
-        <p>Complete move-in support that takes your new home from packed boxes to a comfortable, organised space.</p>
-        <span class="tag">02 · Unpack</span>
-      </div>
-      <div class="service-card reveal" data-delay="160">
-        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22h18M8 22V13a4 4 0 0 1 8 0v9"/><path d="M12 4v4M9 4h6"/></svg></div>
-        <h3>Cleaning Services</h3>
-        <p>A deep clean of your new space before anything is placed — floors, kitchen, bathrooms and every corner, so day one feels like a fresh start.</p>
-        <span class="tag">03 · Clean</span>
-      </div>
-      <div class="service-card reveal" data-delay="0">
-        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12v7a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-7a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3z"/><path d="M5 12V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/></svg></div>
-        <h3>Installation &amp; Repair</h3>
-        <p>Furniture assembly, appliance installation and essential repairs handled carefully by experienced professionals.</p>
-        <span class="tag">04 · Assemble</span>
-      </div>
-      <div class="service-card reveal" data-delay="80">
-        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-6h6v6M9 12h.01M15 12h.01"/></svg></div>
-        <h3>House Help Services</h3>
-        <p>Reliable help for housekeeping, home organisation and the everyday work that keeps your new place running smoothly.</p>
-        <span class="tag">05 · Organise</span>
-      </div>
-      <div class="service-card reveal" data-delay="160">
-        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4v3H8V6a4 4 0 0 1 4-4z"/><path d="M4 9h16l-1 11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/></svg></div>
-        <h3>Instant Help</h3>
-        <p>Quick support when your home needs an extra pair of hands, from urgent setup needs to last-minute service requests.</p>
-        <span class="tag">06 · Live</span>
-      </div>
+    <div class="svc-grid">
+    <a class="svc-card reveal" data-delay="0" href="services.html">
+      <div class="svc-img"><img src="../assets/img/shifting.webp" alt="Home Shifting" loading="lazy"><span class="num-pill">01 · Move</span></div>
+      <div class="svc-body"><h3>Home Shifting</h3><p>Safe packing, careful loading, transport and unloading — handled by trained, verified teams who treat your belongings like their own.</p><span class="more">Learn more →</span></div>
+    </a>
+    <a class="svc-card reveal" data-delay="90" href="services.html">
+      <div class="svc-img"><img src="../assets/img/living-room.webp" alt="Ready-to-Live Services" loading="lazy"><span class="num-pill">02 · Unpack</span></div>
+      <div class="svc-body"><h3>Ready-to-Live Services</h3><p>Complete move-in support that takes your new home from packed boxes to a comfortable, organised space.</p><span class="more">Learn more →</span></div>
+    </a>
+    <a class="svc-card reveal" data-delay="180" href="services.html">
+      <div class="svc-img"><img src="../assets/img/cleaning.webp" alt="Cleaning Services" loading="lazy"><span class="num-pill">03 · Clean</span></div>
+      <div class="svc-body"><h3>Cleaning Services</h3><p>A deep clean of your new space before anything is placed — floors, kitchen, bathrooms and every corner, so day one feels like a fresh start.</p><span class="more">Learn more →</span></div>
+    </a>
+    <a class="svc-card reveal" data-delay="0" href="services.html">
+      <div class="svc-img"><img src="../assets/img/install.webp" alt="Installation &amp; Repair" loading="lazy"><span class="num-pill">04 · Assemble</span></div>
+      <div class="svc-body"><h3>Installation &amp; Repair</h3><p>Furniture assembly, appliance installation and essential repairs handled carefully by experienced professionals.</p><span class="more">Learn more →</span></div>
+    </a>
+    <a class="svc-card reveal" data-delay="90" href="services.html">
+      <div class="svc-img"><img src="../assets/img/house-help.webp" alt="House Help Services" loading="lazy"><span class="num-pill">05 · Organise</span></div>
+      <div class="svc-body"><h3>House Help Services</h3><p>Reliable help for housekeeping, home organisation and the everyday work that keeps your new place running smoothly.</p><span class="more">Learn more →</span></div>
+    </a>
+    <a class="svc-card reveal" data-delay="180" href="services.html">
+      <div class="svc-img"><img src="../assets/img/instant-help.webp" alt="Instant Help" loading="lazy"><span class="num-pill">06 · Live</span></div>
+      <div class="svc-body"><h3>Instant Help</h3><p>Quick support when your home needs an extra pair of hands, from urgent setup needs to last-minute service requests.</p><span class="more">Learn more →</span></div>
+    </a>
     </div>
+    <div class="center-cta reveal"><a class="btn-ghost" href="services.html">See all services in detail →</a></div>
+  </div>
+</section>
 
-    <div style="text-align:center; margin-top:44px;" class="reveal">
-      <a class="btn-outline-navy" href="services.html">See all services in detail →</a>
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="kicker">The Set My Place difference</div>
+        <h2>Same room. <em>Moving day vs. day one.</em></h2>
+      </div>
+      <p>Drag the slider to see what a ready-to-live setup does to a freshly delivered home.</p>
+    </div>
+    <div class="ba reveal-scale">
+      <div class="before"><img src="../assets/img/room.webp" alt="Before: the same room on moving day, full of boxes" loading="lazy">
+        <svg viewBox="0 0 1400 600" preserveAspectRatio="xMidYMax slice"><g><rect x="60" y="430" width="230" height="170" rx="3" fill="#B98552"/><rect x="60" y="430" width="230" height="30" fill="#A87444"/><rect x="168" y="430" width="14" height="170" fill="#D9C29A" opacity=".85"/></g><g><rect x="110" y="300" width="170" height="130" rx="3" fill="#B98552"/><rect x="110" y="300" width="170" height="23" fill="#A87444"/><rect x="188" y="300" width="14" height="130" fill="#D9C29A" opacity=".85"/></g><g><rect x="300" y="470" width="190" height="130" rx="3" fill="#B98552"/><rect x="300" y="470" width="190" height="23" fill="#A87444"/><rect x="388" y="470" width="14" height="130" fill="#D9C29A" opacity=".85"/></g><g><rect x="330" y="370" width="140" height="100" rx="3" fill="#B98552"/><rect x="330" y="370" width="140" height="18" fill="#A87444"/><rect x="393" y="370" width="14" height="100" fill="#D9C29A" opacity=".85"/></g><g><rect x="880" y="450" width="250" height="150" rx="3" fill="#B98552"/><rect x="880" y="450" width="250" height="27" fill="#A87444"/><rect x="998" y="450" width="14" height="150" fill="#D9C29A" opacity=".85"/></g><g><rect x="940" y="330" width="180" height="120" rx="3" fill="#B98552"/><rect x="940" y="330" width="180" height="21" fill="#A87444"/><rect x="1023" y="330" width="14" height="120" fill="#D9C29A" opacity=".85"/></g><g><rect x="1150" y="500" width="160" height="100" rx="3" fill="#B98552"/><rect x="1150" y="500" width="160" height="18" fill="#A87444"/><rect x="1223" y="500" width="14" height="100" fill="#D9C29A" opacity=".85"/></g><g><rect x="560" y="520" width="150" height="80" rx="3" fill="#B98552"/><rect x="560" y="520" width="150" height="14" fill="#A87444"/><rect x="628" y="520" width="14" height="80" fill="#D9C29A" opacity=".85"/></g></svg></div>
+      <img class="after" src="../assets/img/room.webp" alt="After: the room unpacked, cleaned and set up" loading="lazy">
+      <div class="handle"></div>
+      <span class="tag tl">Before</span><span class="tag tr">After · Set My Place</span>
+      <input type="range" min="0" max="100" value="50" aria-label="Compare before and after">
     </div>
   </div>
 </section>
 
-<!-- ============ HOW IT WORKS TEASER ============ -->
-<section class="bg-cream2" id="how">
+<section class="sec" id="how">
   <div class="wrap">
-    <div class="section-head reveal">
-      <div class="kicker">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-        How booking works
+    <div class="sec-head reveal">
+      <div>
+        <div class="kicker">How booking works</div>
+        <h2>One call, one booking, zero stress.</h2>
       </div>
-      <h2>One call, one booking, zero stress.</h2>
+      <a class="btn-ghost" href="how-it-works.html">See the full process →</a>
     </div>
-
-    <div class="timeline timeline-with-truck">
-      <div class="timeline-truck" aria-hidden="true">
-        <img src="../assets/truck.svg" alt="">
-      </div>
-      <div class="step">
-        <div class="dot">1</div>
-        <h4>Contact us</h4>
-        <p>Call or WhatsApp your requirement — tell us what your new home needs.</p>
-      </div>
-      <div class="step">
-        <div class="dot">2</div>
-        <h4>Get a quote</h4>
-        <p>Receive a clear, transparent quote for exactly the services you need.</p>
-      </div>
-      <div class="step">
-        <div class="dot">3</div>
-        <h4>Book &amp; relax</h4>
-        <p>Confirm your booking on a date that works for you — no back and forth.</p>
-      </div>
-      <div class="step active">
-        <div class="dot">4</div>
-        <h4>Move. Set. Live.</h4>
-        <p>We handle everything on-site while you enjoy your new home.</p>
-      </div>
+  <div class="timeline timeline-with-truck">
+    <div class="timeline-truck" aria-hidden="true"><img src="../assets/truck.svg" alt=""></div>
+    <div class="step">
+      <div class="step-img"><img src="../assets/img/step-call.webp" alt="" loading="lazy"><div class="dot">1</div></div>
+      <h4>Contact us</h4>
+      <p>Call or WhatsApp your requirement — tell us what your new home needs.</p>
     </div>
+    <div class="step">
+      <div class="step-img"><img src="../assets/img/step-quote.webp" alt="" loading="lazy"><div class="dot">2</div></div>
+      <h4>Get a quote</h4>
+      <p>Receive a clear, transparent quote for exactly the services you need.</p>
+    </div>
+    <div class="step">
+      <div class="step-img"><img src="../assets/img/cta-home.webp" alt="" loading="lazy"><div class="dot">3</div></div>
+      <h4>Book &amp; relax</h4>
+      <p>Confirm your booking on a date that works for you — no back and forth.</p>
+    </div>
+    <div class="step active">
+      <div class="step-img"><img src="../assets/img/step-live.webp" alt="" loading="lazy"><div class="dot">4</div></div>
+      <h4>Move. Set. Live.</h4>
+      <p>We handle everything on-site while you enjoy your new home.</p>
+    </div>
+  </div>
   </div>
 </section>
 
-<!-- ============ WHY US TEASER ============ -->
-<section class="bg-navy" id="why">
+<section class="sec sec-alt" id="why">
   <div class="wrap">
-    <div class="why-grid">
-      <div class="reveal">
-        <div class="kicker" style="color:#FFA23C;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-          Why choose Set My Place
-        </div>
+    <div class="sec-head reveal">
+      <div>
+        <div class="kicker">Why choose Set My Place</div>
         <h2>Trust is the whole business model.</h2>
-        <p class="why-lead">Every partner is verified, every team is trained, and every price is agreed before we start.</p>
-        <a class="btn-ghost" style="margin-top:26px;" href="why-us.html">More reasons to choose us →</a>
       </div>
-      <div class="check-grid">
-        <div class="check-item" style="--i:0"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5 11-11"/></svg></div><span>Verified &amp; reliable partners</span></div>
-        <div class="check-item" style="--i:1"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5 11-11"/></svg></div><span>Trained &amp; professional team</span></div>
-        <div class="check-item" style="--i:2"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5 11-11"/></svg></div><span>Transparent, upfront pricing</span></div>
-        <div class="check-item" style="--i:3"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5 11-11"/></svg></div><span>On-time delivery, every time</span></div>
-        <div class="check-item" style="--i:4"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5 11-11"/></svg></div><span>End-to-end support</span></div>
-        <div class="check-item" style="--i:5"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5 11-11"/></svg></div><span>100% customer satisfaction focus</span></div>
+      <p>Every partner is verified, every team is trained, and every price is agreed before we start.</p>
+    </div>
+  <div class="why-bento">
+    <div class="why-big reveal">
+      <img src="../assets/img/unpack.webp" alt="Set My Place team unpacking in a new home" loading="lazy">
+      <div>
+        <h3>End-to-end support</h3>
+        <p>From the truck arriving to the last cushion on the sofa — one team, one point of contact.</p>
+        <a class="btn-primary" href="why-us.html">More reasons to choose us →</a>
       </div>
     </div>
+    <div class="why-card check-item" data-delay="0"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><span>Verified &amp; reliable partners</span></div>
+    <div class="why-card check-item" data-delay="80"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><span>Trained &amp; professional team</span></div>
+    <div class="why-card check-item" data-delay="160"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><span>Transparent, upfront pricing</span></div>
+    <div class="why-card check-item" data-delay="240"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><span>On-time delivery, every time</span></div>
+    <div class="why-card check-item" data-delay="400"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><span>100% customer satisfaction focus</span></div>
+  </div>
   </div>
 </section>
 
-<!-- ============ TESTIMONIALS ============ -->
-<section class="bg-cream2" id="reviews">
+<section class="sec" id="reviews">
   <div class="wrap">
-    <div class="section-head center reveal">
-      <div class="kicker" style="justify-content:center;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-9 8.5 9.3 9.3 0 0 1-4-.9L3 21l1.9-4A8.5 8.5 0 1 1 21 11.5Z"/><path d="M8 12h.01M12 12h.01M16 12h.01"/></svg>
-        Customer reviews
-      </div>
+    <div class="sec-head center reveal">
+      <div class="kicker">Customer reviews</div>
       <h2>Real homes. Real relief.</h2>
       <p>The best part of the job is hearing that move-in day finally felt easy.</p>
     </div>
@@ -302,45 +309,37 @@
         <div class="testi-who"><div class="testi-avatar">P</div><div><div class="testi-name">Pooja K.</div><div class="testi-loc">Sushant Golf City, Lucknow</div></div></div>
       </article>
       </div>
-      <div class="testi-controls">
-        <button class="testi-control" type="button" data-testimonial-prev aria-label="Previous testimonial">&#8592;</button>
-        <div class="testi-dots" aria-label="Testimonial slides"></div>
-        <button class="testi-control" type="button" data-testimonial-next aria-label="Next testimonial">&#8594;</button>
+    </div>
+    <div class="testi-controls" aria-label="Testimonial controls">
+      <button type="button" class="testi-control" data-testimonial-prev aria-label="Previous reviews">&#8592;</button>
+      <div class="testi-dots"></div>
+      <button type="button" class="testi-control" data-testimonial-next aria-label="Next reviews">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<section class="sec tight-top" id="partner">
+  <div class="wrap">
+    <div class="partner-split reveal-scale">
+      <div class="ph"><img src="../assets/img/shifting.webp" alt="Movers carrying boxes into a home" loading="lazy"></div>
+      <div class="tx">
+        <div class="kicker">For packers &amp; movers</div>
+        <h2>Your moving partner. Their home-setup partner.</h2>
+        <p>If you're a packers &amp; movers, transport, loading-unloading or relocation business — hand off the after-move work to us, and earn on every referral.</p>
+        <div class="chips"><span>Packers &amp; Movers</span><span>Transport Businesses</span><span>Loading &amp; Unloading Teams</span></div>
+        <a class="btn-navy" href="partner.html">Explore the partner program →</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ PARTNER TEASER ============ -->
-<section id="partner">
-  <div class="wrap">
-    <div class="partner-band reveal-scale">
-      <div class="partner-top">
-        <div>
-          <h2>Your moving partner. Their home-setup partner.</h2>
-          <p>If you're a packers &amp; movers, transport, loading-unloading or relocation business — hand off the after-move work to us, and earn on every referral.</p>
-          <div class="partner-for" style="margin-top:18px;">
-            <span class="pill">Packers &amp; Movers</span>
-            <span class="pill">Transport Businesses</span>
-            <span class="pill">Loading &amp; Unloading Teams</span>
-          </div>
-        </div>
-        <a class="btn-primary" href="partner.html">Explore the partner program</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CTA ============ -->
-<section>
-  <div class="wrap">
-    <div class="cta-band reveal-scale">
+<section class="sec">
+  <div class="cta-photo reveal-scale">
+    <img src="../assets/img/cta-home.webp" alt="" loading="lazy">
+    <div class="wrap cta-in">
       <h2>Ready to make it feel like home?</h2>
       <p>Tell us your move-in date — we'll get back with a quote the same day.</p>
-      <div class="hero-actions">
-        <a class="btn-primary" href="tel:+917007045262">Call +91 70070 45262</a>
-        <a class="btn-ghost" href="https://wa.me/917007045262" target="_blank" rel="noopener">Chat on WhatsApp</a>
-      </div>
+      <div class="actions"><a class="btn-primary" href="tel:+917007045262">Call +91 70070 45262</a><a class="btn-light" href="https://wa.me/917007045262" target="_blank" rel="noopener">Chat on WhatsApp</a></div>
     </div>
   </div>
 </section>
@@ -396,8 +395,10 @@
   </div>
 </footer>
 
+<a class="wa-float" href="https://wa.me/917007045262" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1c.2.2 2.1 3.2 5.1 4.5 1.9.8 2.6.9 3.6.7.6-.1 1.8-.7 2-1.4s.3-1.3.2-1.4l-.8-.5zM12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2z"/></svg></a>
 <button class="to-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 
-<script src="../assets/main.js?v=20260922-3" defer></script>
+<script src="../assets/main.js?v=20261123" defer></script>
+<script src="../assets/site.js?v=20261123" defer></script>
 </body>
 </html>

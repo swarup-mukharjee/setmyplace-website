@@ -25,15 +25,24 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css">
+<script>try{document.documentElement.classList.add(sessionStorage.getItem('smp-loaded')?'no-loader':'has-loader')}catch(e){document.documentElement.classList.add('no-loader')}</script>
+<link rel="stylesheet" href="../assets/site.css?v=20261123">
 </head>
 <body>
 
+<div id="loader" aria-hidden="true">
+  <div class="ld-logo"><span class="ld-ring2"></span><span class="ld-ring"></span><img src="../assets/icon.png" alt=""></div>
+  <div class="ld-bottom">
+    <div class="ld-pct"></div>
+    <div class="ld-words"><b>Setting your place…</b>Shifting · Unpacking · Cleaning<br>Lucknow &amp; nearby</div>
+  </div>
+  <div class="ld-bar"></div>
+</div>
+
 <header class="site-header">
-  <div class="navbar">
-        <a class="brand" href="index.html">
-      <img src="../assets/logo.gif" alt="Set My Place icon">
-      <!-- <span class="brand-word">Set<span>My</span>Place</span> -->
+  <div class="wrap navbar">
+    <a class="brand" href="index.html">
+      <img src="../assets/logo-anim.webp" alt="Set My Place" width="157" height="50">
     </a>
     <nav class="main-nav">
       <ul>
@@ -46,36 +55,194 @@
       </ul>
     </nav>
     <div class="nav-right">
-      <a class="nav-cta" href="contact.html">Book Now →</a>
+      <a class="btn-primary nav-cta" href="contact.html">Book Now →</a>
       <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
   <div class="mobile-nav">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="how-it-works.html">How it works</a></li>
-      <li><a href="why-us.html">Why us</a></li>
-      <li><a href="partner.html" class="active">Partner with us</a></li>
-      <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="how-it-works.html">How it works</a></li>
+        <li><a href="why-us.html">Why us</a></li>
+        <li><a href="partner.html" class="active">Partner with us</a></li>
+        <li><a href="contact.html">Contact</a></li>
     </ul>
     <a class="btn-primary nav-cta" href="contact.html">Book Now</a>
   </div>
 </header>
 
-<section class="hero-inner">
-  <div class="wrap hero-inner-inner">
-    <div class="eyebrow-tag"><i></i> Partner program</div>
-    <h1>Your moving partner.<br>Their home-setup partner.</h1>
-    <p class="lead">You move their belongings. We make their new house, home. Grow your business — we handle the rest.</p>
+<section class="page-hero">
+  <img src="../assets/img/shifting.webp" alt="" fetchpriority="high">
+  <div class="wrap">
+    <div class="crumbs rise"><a href="index.html">Home</a><span>/</span><span>Partner with us</span></div>
+    <div class="eyebrow rise" style="--d:.05s"><i></i> Partner program</div>
+    <h1 class="rise" style="--d:.12s">Your moving partner.<br>Their home-setup partner.</h1>
+    <p class="lead rise" style="--d:.2s">You move their belongings. We make their new house, home. Grow your business — we handle the rest.</p>
+    <div class="actions rise" style="--d:.28s;margin-top:30px"><a class="btn-primary" href="#partner-registration">Register as a partner →</a><a class="btn-light" href="#how">How it works</a></div>
   </div>
-  <img class="hero-inner-icon" src="../assets/icon.png" alt="">
 </section>
 
-<section class="bg-cream2" id="partner-registration">
+<section class="sec">
   <div class="wrap">
-    <div class="section-head reveal">
-      <div class="kicker"><i></i> Partner registration</div>
+    <div class="sec-head reveal">
+      <div>
+        <div class="kicker">Perfect for</div>
+        <h2>If this is you, let's talk.</h2>
+      </div>
+    </div>
+    <div class="badge-grid reveal">
+      <div class="badge-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <h4>Packers &amp; Movers</h4>
+      </div>
+      <div class="badge-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="7" width="16" height="10" rx="1"/><path d="M17 10h3l3 3v4h-6z"/><circle cx="6" cy="19" r="1.6"/><circle cx="18" cy="19" r="1.6"/></svg>
+        <h4>Transport Businesses</h4>
+      </div>
+      <div class="badge-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V6a2 2 0 0 0-2-2H8L2 10l6 6h11a2 2 0 0 0 2-2v-2"/></svg>
+        <h4>Loading &amp; Unloading Teams</h4>
+      </div>
+      <div class="badge-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-6h6v6"/></svg>
+        <h4>Relocation Providers</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="kicker">Why partner with us</div>
+        <h2>You focus on moving. We handle the home setup.</h2>
+      </div>
+      <p>Set My Place helps your customers after they move in — we make their new house a ready-to-live home, so you don't have to.</p>
+    </div>
+    <div class="badge-grid six reveal">
+      <div class="badge-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <h4>More Business</h4>
+      </div>
+      <div class="badge-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <h4>Extra Income</h4>
+      </div>
+      <div class="badge-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <h4>Zero Investment</h4>
+      </div>
+      <div class="badge-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+        <h4>No Extra Effort</h4>
+      </div>
+      <div class="badge-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <h4>Happy Customers</h4>
+      </div>
+      <div class="badge-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+        <h4>Long Term Growth</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="kicker">How it works</div>
+        <h2>From lead to payout, in six steps.</h2>
+      </div>
+    </div>
+    <div class="timeline steps-6">
+      <div class="step">
+        <div class="dot">1</div>
+        <h4>You get a moving order</h4>
+        <p>You do packing, loading, transportation and unloading as usual.</p>
+      </div>
+      <div class="step">
+        <div class="dot">2</div>
+        <h4>Customer needs post-move setup</h4>
+        <p>After moving, the customer needs unpacking, cleaning, setup or full home organisation.</p>
+      </div>
+      <div class="step">
+        <div class="dot">3</div>
+        <h4>Share the lead with us</h4>
+        <p>Share customer details and requirements with Set My Place.</p>
+      </div>
+      <div class="step">
+        <div class="dot">4</div>
+        <h4>We coordinate &amp; execute</h4>
+        <p>Our team completes the home setup professionally, on schedule.</p>
+      </div>
+      <div class="step">
+        <div class="dot">5</div>
+        <h4>Customer gets a ready-to-live home</h4>
+        <p>Your customer enjoys a hassle-free, well-organised new home.</p>
+      </div>
+      <div class="step active">
+        <div class="dot">6</div>
+        <h4>You earn your partner benefit</h4>
+        <p>You earn your agreed referral or partner income — on autopilot.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tight-top" id="benefits">
+  <div class="wrap">
+    <div class="benefit-band reveal-scale">
+      <div class="benefit-top">
+        <div>
+          <h2>What you get as our partner</h2>
+          <p>A partnership built to run itself — you send the lead, we do the work, you get paid.</p>
+        </div>
+        <a class="btn-primary" href="contact.html">Let's connect</a>
+      </div>
+      <div class="benefit-grid">
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <h4>Regular qualified leads</h4>
+          <p>We bring you verified customers who need post-move home setup.</p>
+        </div>
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <h4>Higher earnings</h4>
+          <p>Earn more per move through attractive partner commissions.</p>
+        </div>
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a2 2 0 1 1-3.2 2.4"/></svg>
+          <h4>Marketing support</h4>
+          <p>We help promote the partnership to your existing customers.</p>
+        </div>
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          <h4>Attractive partner commission</h4>
+          <p>Clear, agreed rates on every successful referral.</p>
+        </div>
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <h4>Timely payouts</h4>
+          <p>A standard process, so you always know when and what you'll earn.</p>
+        </div>
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <h4>Dedicated partner support</h4>
+          <p>A single point of contact for coordination on every shared lead.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="partner-registration">
+  <div class="wrap form-wrap">
+    <div class="sec-head stack reveal">
+      <div class="kicker">Partner registration</div>
       <h2>Register as a Set My Place partner.</h2>
       <p>Tell us about yourself, your services and your operating area. We will verify the details and contact you about activation.</p>
     </div>
@@ -212,174 +379,13 @@
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="kicker">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11H5a2 2 0 0 0-2 2v7h4M9 11l4-7 4 7M9 11h8m0 0h4a2 2 0 0 1 2 2v7h-4"/></svg>
-        Perfect for
-      </div>
-      <h2>If this is you, let's talk.</h2>
-    </div>
-    <div class="badge-grid reveal">
-      <div class="badge-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        <h4>Packers &amp; Movers</h4>
-      </div>
-      <div class="badge-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="7" width="16" height="10" rx="1"/><path d="M17 10h3l3 3v4h-6z"/><circle cx="6" cy="19" r="1.6"/><circle cx="18" cy="19" r="1.6"/></svg>
-        <h4>Transport Businesses</h4>
-      </div>
-      <div class="badge-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V6a2 2 0 0 0-2-2H8L2 10l6 6h11a2 2 0 0 0 2-2v-2"/></svg>
-        <h4>Loading &amp; Unloading Teams</h4>
-      </div>
-      <div class="badge-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-6h6v6"/></svg>
-        <h4>Relocation Providers</h4>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="bg-cream2">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="kicker">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-        Why partner with us
-      </div>
-      <h2>You focus on moving. We handle the home setup.</h2>
-      <p>Set My Place helps your customers after they move in — we make their new house a ready-to-live home, so you don't have to.</p>
-    </div>
-    <div class="badge-grid reveal">
-      <div class="badge-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        <h4>More Business</h4>
-      </div>
-      <div class="badge-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        <h4>Extra Income</h4>
-      </div>
-      <div class="badge-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-        <h4>Zero Investment</h4>
-      </div>
-      <div class="badge-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
-        <h4>No Extra Effort</h4>
-      </div>
-      <div class="badge-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-        <h4>Happy Customers</h4>
-      </div>
-      <div class="badge-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
-        <h4>Long Term Growth</h4>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="how">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="kicker">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-        How it works
-      </div>
-      <h2>From lead to payout, in six steps.</h2>
-    </div>
-    <div class="timeline steps-6">
-      <div class="step">
-        <div class="dot">1</div>
-        <h4>You get a moving order</h4>
-        <p>You do packing, loading, transportation and unloading as usual.</p>
-      </div>
-      <div class="step">
-        <div class="dot">2</div>
-        <h4>Customer needs post-move setup</h4>
-        <p>After moving, the customer needs unpacking, cleaning, setup or full home organisation.</p>
-      </div>
-      <div class="step">
-        <div class="dot">3</div>
-        <h4>Share the lead with us</h4>
-        <p>Share customer details and requirements with Set My Place.</p>
-      </div>
-      <div class="step">
-        <div class="dot">4</div>
-        <h4>We coordinate &amp; execute</h4>
-        <p>Our team completes the home setup professionally, on schedule.</p>
-      </div>
-      <div class="step">
-        <div class="dot">5</div>
-        <h4>Customer gets a ready-to-live home</h4>
-        <p>Your customer enjoys a hassle-free, well-organised new home.</p>
-      </div>
-      <div class="step active">
-        <div class="dot">6</div>
-        <h4>You earn your partner benefit</h4>
-        <p>You earn your agreed referral or partner income — on autopilot.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="bg-cream2" id="benefits">
-  <div class="wrap">
-    <div class="partner-band reveal-scale" style="background:linear-gradient(135deg, var(--navy-2), var(--navy));">
-      <div class="partner-top">
-        <div>
-          <h2>What you get as our partner</h2>
-          <p>A partnership built to run itself — you send the lead, we do the work, you get paid.</p>
-        </div>
-        <a class="btn-primary" href="contact.html">Let's connect</a>
-      </div>
-      <div class="benefit-grid">
-        <div class="benefit">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          <h4>Regular qualified leads</h4>
-          <p>We bring you verified customers who need post-move home setup.</p>
-        </div>
-        <div class="benefit">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          <h4>Higher earnings</h4>
-          <p>Earn more per move through attractive partner commissions.</p>
-        </div>
-        <div class="benefit">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a2 2 0 1 1-3.2 2.4"/></svg>
-          <h4>Marketing support</h4>
-          <p>We help promote the partnership to your existing customers.</p>
-        </div>
-        <div class="benefit">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-          <h4>Attractive partner commission</h4>
-          <p>Clear, agreed rates on every successful referral.</p>
-        </div>
-        <div class="benefit">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          <h4>Timely payouts</h4>
-          <p>A standard process, so you always know when and what you'll earn.</p>
-        </div>
-        <div class="benefit">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-          <h4>Dedicated partner support</h4>
-          <p>A single point of contact for coordination on every shared lead.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="cta-band reveal-scale">
+<section class="sec">
+  <div class="cta-photo reveal-scale">
+    <img src="../assets/img/cta-home.webp" alt="" loading="lazy">
+    <div class="wrap cta-in">
       <h2>One goal. Happy customer. Strong partnership.</h2>
       <p>Scan the QR on your flyer, or reach out directly to get started.</p>
-      <div class="hero-actions">
-        <a class="btn-primary" href="tel:+917007045262">Call +91 70070 45262</a>
-        <a class="btn-ghost" href="mailto:support@setmyplace.com">Email support@setmyplace.com</a>
-      </div>
+      <div class="actions"><a class="btn-primary" href="tel:+917007045262">Call +91 70070 45262</a><a class="btn-light" href="mailto:support@setmyplace.com">Email support@setmyplace.com</a></div>
     </div>
   </div>
 </section>
@@ -434,7 +440,6 @@
     </div>
   </div>
 </footer>
-
 <div class="send-overlay" id="sendOverlay" aria-hidden="true">
   <div class="send-loader" role="status" aria-live="polite">
     <div class="rocket-scene">
@@ -458,8 +463,10 @@
   </div>
 </div>
 
+<a class="wa-float" href="https://wa.me/917007045262" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1c.2.2 2.1 3.2 5.1 4.5 1.9.8 2.6.9 3.6.7.6-.1 1.8-.7 2-1.4s.3-1.3.2-1.4l-.8-.5zM12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2z"/></svg></a>
 <button class="to-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 
-<script src="../assets/main.js?v=20260922-3" defer></script>
+<script src="../assets/main.js?v=20261123" defer></script>
+<script src="../assets/site.js?v=20261123" defer></script>
 </body>
 </html>
