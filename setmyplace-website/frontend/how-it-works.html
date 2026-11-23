@@ -25,15 +25,24 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css">
+<script>try{document.documentElement.classList.add(sessionStorage.getItem('smp-loaded')?'no-loader':'has-loader')}catch(e){document.documentElement.classList.add('no-loader')}</script>
+<link rel="stylesheet" href="../assets/site.css?v=20261123f">
 </head>
 <body>
 
+<div id="loader" aria-hidden="true">
+  <div class="ld-logo"><span class="ld-ring2"></span><span class="ld-ring"></span><img src="../assets/icon.png" alt=""></div>
+  <div class="ld-bottom">
+    <div class="ld-pct"></div>
+    <div class="ld-words"><b>Setting your place…</b>Shifting · Unpacking · Cleaning<br>Lucknow &amp; nearby</div>
+  </div>
+  <div class="ld-bar"></div>
+</div>
+
 <header class="site-header">
-  <div class="navbar">
-        <a class="brand" href="index.html">
-      <img src="../assets/logo.gif" alt="Set My Place icon">
-      <!-- <span class="brand-word">Set<span>My</span>Place</span> -->
+  <div class="wrap navbar">
+    <a class="brand" href="index.html">
+      <img src="../assets/logo-anim.webp" alt="Set My Place" width="157" height="50">
     </a>
     <nav class="main-nav">
       <ul>
@@ -46,79 +55,79 @@
       </ul>
     </nav>
     <div class="nav-right">
-      <a class="nav-cta" href="contact.html">Book Now →</a>
+      <a class="btn-primary nav-cta" href="contact.html">Book Now →</a>
       <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
   <div class="mobile-nav">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="how-it-works.html" class="active">How it works</a></li>
-      <li><a href="why-us.html">Why us</a></li>
-      <li><a href="partner.html">Partner with us</a></li>
-      <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="how-it-works.html" class="active">How it works</a></li>
+        <li><a href="why-us.html">Why us</a></li>
+        <li><a href="partner.html">Partner with us</a></li>
+        <li><a href="contact.html">Contact</a></li>
     </ul>
     <a class="btn-primary nav-cta" href="contact.html">Book Now</a>
   </div>
 </header>
 
-<section class="hero-inner">
-  <div class="wrap hero-inner-inner">
-    <div class="eyebrow-tag"><i></i> The process</div>
-    <h1>One call. One booking. Zero stress.</h1>
-    <p class="lead">Whether you're booking a home setup or referring us your customers as a partner, here's exactly what happens at every step.</p>
+<section class="page-hero">
+  <img src="../assets/img/step-call.webp" alt="" fetchpriority="high">
+  <div class="wrap">
+    <div class="crumbs rise"><a href="index.html">Home</a><span>/</span><span>How it works</span></div>
+    <div class="eyebrow rise" style="--d:.05s"><i></i> The process</div>
+    <h1 class="rise" style="--d:.12s">One call. One booking. Zero stress.</h1>
+    <p class="lead rise" style="--d:.2s">Whether you're booking a home setup or referring us your customers as a partner, here's exactly what happens at every step.</p>
+    
   </div>
-  <img class="hero-inner-icon" src="../assets/icon.png" alt="">
 </section>
 
-<section>
+<section class="sec">
   <div class="wrap">
-    <div class="section-head reveal">
-      <div class="kicker">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        For customers
+    <div class="sec-head reveal">
+      <div>
+        <div class="kicker">For customers</div>
+        <h2>Booking your ready-to-live setup.</h2>
       </div>
-      <h2>Booking your ready-to-live setup.</h2>
       <p>From the first call to putting your feet up in an organised home — four simple steps.</p>
     </div>
-
-    <div class="timeline">
-      <div class="step">
-        <div class="dot">1</div>
-        <h4>Contact us</h4>
-        <p>Call or WhatsApp your requirement — tell us your move-in date and what your new home needs.</p>
-      </div>
-      <div class="step">
-        <div class="dot">2</div>
-        <h4>Get a quote</h4>
-        <p>Receive a clear, itemised quote for exactly the services you want, with no hidden costs.</p>
-      </div>
-      <div class="step">
-        <div class="dot">3</div>
-        <h4>Book &amp; relax</h4>
-        <p>Confirm your booking on a date that suits you — we schedule around your move.</p>
-      </div>
-      <div class="step active">
-        <div class="dot">4</div>
-        <h4>Move. Set. Live.</h4>
-        <p>Our trained team handles everything on-site, while you enjoy the new home.</p>
-      </div>
+  <div class="timeline timeline-with-truck">
+    <div class="timeline-truck" aria-hidden="true"><img src="../assets/truck.svg" alt=""></div>
+    <div class="road-traffic" aria-hidden="true"><span class="veh lane-b v1"><svg width="42" height="19" viewBox="0 0 42 19"><rect x="2" y="7" width="38" height="8" rx="3" fill="#E5484D"/><path d="M10 7l4-5h12l5 5z" fill="#E5484D"/><path d="M13 7l2.5-3.5h4.5V7zM21.5 7V3.5h4l3 3.5z" fill="#BFE3FF"/><circle cx="11" cy="15" r="3.2" fill="#1B2230"/><circle cx="31" cy="15" r="3.2" fill="#1B2230"/><rect x="37" y="9" width="3" height="2" fill="#FFE08A"/></svg></span><span class="veh lane-b v3"><svg width="60" height="22" viewBox="0 0 60 22"><rect x="1" y="1" width="58" height="17" rx="3" fill="#F28C28"/><rect x="1" y="12" width="58" height="2" fill="#16335E"/><g fill="#BFE3FF"><rect x="5" y="4" width="8" height="6" rx="1"/><rect x="16" y="4" width="8" height="6" rx="1"/><rect x="27" y="4" width="8" height="6" rx="1"/><rect x="38" y="4" width="8" height="6" rx="1"/><rect x="49" y="4" width="8" height="8" rx="1"/></g><circle cx="12" cy="19" r="3.2" fill="#1B2230"/><circle cx="48" cy="19" r="3.2" fill="#1B2230"/></svg></span><span class="veh lane-b v5"><svg width="30" height="20" viewBox="0 0 30 20"><path d="M4 16V8q0-6 9-6h8q5 0 6 6l3 8z" fill="#2E9E4F"/><rect x="4" y="2" width="22" height="3" rx="1.5" fill="#FFC83D"/><path d="M8 7h7v6H8z" fill="#BFE3FF"/><circle cx="8" cy="17" r="2.8" fill="#1B2230"/><circle cx="26" cy="17" r="2.8" fill="#1B2230"/></svg></span><span class="veh lane-a v2"><svg width="42" height="19" viewBox="0 0 42 19"><rect x="2" y="7" width="38" height="8" rx="3" fill="#FFFFFF"/><path d="M10 7l4-5h12l5 5z" fill="#FFFFFF"/><path d="M13 7l2.5-3.5h4.5V7zM21.5 7V3.5h4l3 3.5z" fill="#BFE3FF"/><circle cx="11" cy="15" r="3.2" fill="#1B2230"/><circle cx="31" cy="15" r="3.2" fill="#1B2230"/><rect x="37" y="9" width="3" height="2" fill="#FFE08A"/></svg></span><span class="veh lane-a v4"><svg width="26" height="18" viewBox="0 0 26 18"><circle cx="5" cy="15" r="3" fill="#1B2230"/><circle cx="21" cy="15" r="3" fill="#1B2230"/><path d="M3 12h10l3-6h3l3 7H3z" fill="#4C6EF5"/><circle cx="12" cy="3" r="2.4" fill="#F2B880"/><path d="M10 5h4l1 5h-6z" fill="#16335E"/></svg></span></div>
+    <div class="step">
+      <div class="step-img"><img src="../assets/img/step-call.webp" alt="" loading="lazy"><div class="dot">1</div></div>
+      <h4>Contact us</h4>
+      <p>Call or WhatsApp your requirement — tell us your move-in date and what your new home needs.</p>
     </div>
+    <div class="step">
+      <div class="step-img"><img src="../assets/img/step-quote.webp" alt="" loading="lazy"><div class="dot">2</div></div>
+      <h4>Get a quote</h4>
+      <p>Receive a clear, itemised quote for exactly the services you want, with no hidden costs.</p>
+    </div>
+    <div class="step">
+      <div class="step-img"><img src="../assets/img/cta-home.webp" alt="" loading="lazy"><div class="dot">3</div></div>
+      <h4>Book &amp; relax</h4>
+      <p>Confirm your booking on a date that suits you — we schedule around your move.</p>
+    </div>
+    <div class="step active">
+      <div class="step-img"><img src="../assets/img/step-live.webp" alt="" loading="lazy"><div class="dot">4</div></div>
+      <h4>Move. Set. Live.</h4>
+      <p>Our trained team handles everything on-site, while you enjoy the new home.</p>
+    </div>
+  </div>
   </div>
 </section>
 
-<section class="bg-cream2">
+<section class="sec sec-alt">
   <div class="wrap">
-    <div class="section-head reveal">
-      <div class="kicker">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        For partners
+    <div class="sec-head reveal">
+      <div>
+        <div class="kicker">For partners</div>
+        <h2>Referring a customer as a partner.</h2>
       </div>
-      <h2>Referring a customer as a partner.</h2>
       <p>Keep doing what you do best — moving belongings — and let us handle the home setup that comes after.</p>
     </div>
-
     <div class="timeline steps-6">
       <div class="step">
         <div class="dot">1</div>
@@ -151,22 +160,17 @@
         <p>You earn your agreed referral or partner commission — for work you didn't have to do.</p>
       </div>
     </div>
-
-    <div style="text-align:center; margin-top:50px;" class="reveal">
-      <a class="btn-primary" href="partner.html">See full partner benefits →</a>
-    </div>
+    <div class="center-cta reveal"><a class="btn-primary" href="partner.html">See full partner benefits →</a></div>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="cta-band reveal-scale">
+<section class="sec">
+  <div class="cta-photo reveal-scale">
+    <img src="../assets/img/cta-home.webp" alt="" loading="lazy">
+    <div class="wrap cta-in">
       <h2>Ready when you are.</h2>
       <p>One call sets the whole process in motion.</p>
-      <div class="hero-actions">
-        <a class="btn-primary" href="tel:+917007045262">Call +91 70070 45262</a>
-        <a class="btn-ghost" href="https://wa.me/917007045262" target="_blank" rel="noopener">Chat on WhatsApp</a>
-      </div>
+      <div class="actions"><a class="btn-primary" href="tel:+917007045262">Call +91 70070 45262</a><a class="btn-light" href="https://wa.me/917007045262" target="_blank" rel="noopener">Chat on WhatsApp</a></div>
     </div>
   </div>
 </section>
@@ -222,8 +226,10 @@
   </div>
 </footer>
 
+<a class="wa-float" href="https://wa.me/917007045262" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1c.2.2 2.1 3.2 5.1 4.5 1.9.8 2.6.9 3.6.7.6-.1 1.8-.7 2-1.4s.3-1.3.2-1.4l-.8-.5zM12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2z"/></svg></a>
 <button class="to-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 
-<script src="../assets/main.js?v=20260922-3" defer></script>
+<script src="../assets/main.js?v=20261123" defer></script>
+<script src="../assets/site.js?v=20261123" defer></script>
 </body>
 </html>
